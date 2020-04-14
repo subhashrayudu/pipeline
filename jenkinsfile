@@ -1,0 +1,20 @@
+node {
+      stage('code clone') {
+         git 'https://github.com/subhashrayudu/webapp.git' 
+         }
+	  stage('Clean') {
+		sh 'mvn clean'
+		 }
+	  stage('Compile') {
+		sh 'mvn compile'
+		 }
+	  stage('test') {
+		sh 'mvn test'
+		 }
+	  stage('Packages') {
+		sh 'mvn package'
+		 }
+	  stage('Deploy') {
+		sh 'mvn deploy'
+		 }
+	}
