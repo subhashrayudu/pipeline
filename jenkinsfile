@@ -8,6 +8,11 @@ node {
 	  stage('Compile') {
 		sh 'mvn compile'
 		 }
+	  stage('Code Scan'){
+	    	sh 'mvn sonar:sonar \
+  -Dsonar.host.url=http://34.67.82.214:9000 \
+  -Dsonar.login=152338f8af871b01c5d0b3df88e7759d92bf1edc'
+		 }
 	  stage('test') {
 		sh 'mvn test'
 		 }
